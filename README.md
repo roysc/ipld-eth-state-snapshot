@@ -44,3 +44,8 @@ Config format:
     httpPort = 9101 # prometheus http port (default: 8086)
     dbStats = true # enable prometheus db stats (default: false)
 ```
+
+## Tests
+
+* Install [mockgen](https://github.com/golang/mock#installation)
+* `make test`
