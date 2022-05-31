@@ -46,3 +46,5 @@ require (
 )
 
 replace github.com/ethereum/go-ethereum v1.10.17 => github.com/vulcanize/go-ethereum v1.10.17-statediff-3.2.1
+
+replace github.com/vulcanize/go-eth-state-node-iterator => ../state-node-iterator
