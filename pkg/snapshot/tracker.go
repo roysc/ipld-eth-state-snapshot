@@ -53,7 +53,7 @@ func newTracker(file string, buf int) iteratorTracker {
 func (tr *iteratorTracker) captureSignal() {
 	sigChan := make(chan os.Signal, 1)
 
-	signal.Notify(sigChan, syscall.SIGINT, syscall.SIGTERM)
+	signal.Notify(sigChan, syscall.SIGINT, syscall.SIGTERM, syscall.SIGKILL)
 	go func() {
 		sig := <-sigChan
 		log.Errorf("Signal received (%v), stopping", sig)
