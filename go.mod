@@ -3,7 +3,6 @@ module github.com/vulcanize/ipld-eth-state-snapshot
 go 1.15
 
 require (
-	github.com/btcsuite/btcd v0.22.1 // indirect
 	github.com/btcsuite/btcd/btcec/v2 v2.2.0 // indirect
 	github.com/cespare/xxhash/v2 v2.1.2 // indirect
 	github.com/ethereum/go-ethereum v1.10.17
@@ -47,4 +46,4 @@ require (
 
 replace github.com/ethereum/go-ethereum v1.10.17 => github.com/vulcanize/go-ethereum v1.10.17-statediff-3.2.1
 
-replace github.com/vulcanize/go-eth-state-node-iterator => ../state-node-iterator
+replace github.com/vulcanize/go-eth-state-node-iterator => github.com/roysc/go-eth-state-node-iterator v0.0.1-alpha.0.20220531152907-bfd1bc31af52
