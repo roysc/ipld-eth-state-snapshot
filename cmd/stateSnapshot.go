@@ -17,6 +17,7 @@ package cmd
 
 import (
 	"fmt"
+	"path/filepath"
 
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
@@ -56,7 +57,11 @@ func stateSnapshot() {
 	recoveryFile := viper.GetString(snapshot.SNAPSHOT_RECOVERY_FILE_TOML)
 	if recoveryFile == "" {
 		recoveryFile = fmt.Sprintf("./%d_snapshot_recovery", height)
-		logWithCommand.Infof("no recovery file set, creating default: %s", recoveryFile)
+		recoveryFile, err = filepath.Abs(recoveryFile)
+		if err != nil {
+			logWithCommand.Fatal(err)
+		}
+		logWithCommand.Infof("no recovery file set, using default: %s", recoveryFile)
 	}
 
 	pub, err := snapshot.NewPublisher(mode, config)
