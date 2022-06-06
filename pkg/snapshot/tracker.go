@@ -118,6 +118,7 @@ func (tr *iteratorTracker) restore(tree state.Trie) ([]trie.NodeIterator, error)
 		}
 		return nil, err
 	}
+	log.Info("Restoring recovery state from: ", tr.recoveryFile)
 	defer file.Close()
 	in := csv.NewReader(file)
 	in.FieldsPerRecord = 2
